@@ -1,0 +1,70 @@
+import { useState } from "react";
+import { MenuIcon, XIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+export default function Navbar() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navlinks = [
+        {
+            href: "#home",
+            text: "Khem",
+        },
+        {
+            href: "#about",
+            text: "Rishav",
+        },
+        {
+            href: "#tools",
+            text: "Vansh",
+        },
+        {
+            href: "#contact",
+            text: "Contact",
+        },
+    ];
+    return (
+        <>
+            <motion.nav className="sticky top-0 z-50 flex items-center justify-between w-full h-18 px-6 md:px-16 lg:px-24 xl:px-32 backdrop-blur"
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
+            >
+                <a href="#pending.." className="flex items-center">
+                    <span className="text-3xl font-extrabold tracking-wide text-[#1ab8d0]">CyberGuard</span>
+                </a>
+
+                <div className="hidden lg:flex items-center gap-8 transition duration-500">
+                    {navlinks.map((link) => (
+                        <Link key={link.href} to={link.href} className="hover:text-slate-300 transition">
+                            {link.text}
+                        </Link>
+                    ))}
+                </div>
+
+                <div className="hidden lg:block space-x-3">
+                    <button className="px-6 py-2 bg-[#1ab8d0] hover:bg-[#4a98b3] transition text-[#333] font-semibold rounded-md active:scale-95">
+                        Get started
+                    </button>
+                    <button className="hover:bg-slate-300/20 transition px-6 py-2 border border-slate-400 rounded-md active:scale-95">
+                        Docs
+                    </button>
+                </div>
+                <button onClick={() => setIsMenuOpen(true)} className="lg:hidden active:scale-90 transition">
+                    <MenuIcon className="size-6.5" />
+                </button>
+            </motion.nav>
+            <div className={`fixed inset-0 z-[100] bg-black/60 backdrop-blur flex flex-col items-center justify-center text-lg gap-8 lg:hidden transition-transform duration-400 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
+                {navlinks.map((link) => (
+                    <Link key={link.href} to={link.href} onClick={() => setIsMenuOpen(false)}>
+                        {link.text}
+                    </Link>
+                ))}
+                <button onClick={() => setIsMenuOpen(false)} className="active:ring-3 active:ring-white aspect-square size-10 p-1 items-center justify-center bg-slate-100 hover:bg-slate-200 transition text-black rounded-md flex">
+                    <XIcon />
+                </button>
+            </div>
+        </>
+    );
+}
