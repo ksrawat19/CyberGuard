@@ -12,7 +12,7 @@ export default function Navbar() {
         },
         {
             href: "#about",
-            text: "Rishav",
+            text: "Pathania",
         },
         {
             href: "#tools",
