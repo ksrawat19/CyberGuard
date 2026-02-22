@@ -32,7 +32,7 @@ export default function Navbar() {
                 transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
             >
                 <a href="#pending.." className="flex items-center">
-                    <span className="text-3xl font-extrabold tracking-wide text-[#1ab8d0]">CyberGuard</span>
+                    <span className="text-3xl font-extrabold tracking-wide text-[#78b3e2]">CyberGuard</span>
                 </a>
 
                 <div className="hidden lg:flex items-center gap-8 transition duration-500">
@@ -44,9 +44,11 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden lg:block space-x-3">
-                    <button className="px-6 py-2 bg-[#1ab8d0] hover:bg-[#4a98b3] transition text-[#333] font-semibold rounded-md active:scale-95">
+                    <Link to="/dashboard/home">
+                    <button className="px-6 py-2 bg-[#78b3e2] hover:bg-[#5da0d3] transition text-[#333] font-semibold rounded-md active:scale-95">
                         Get started
                     </button>
+                    </Link>
                     <button className="hover:bg-slate-300/20 transition px-6 py-2 border border-slate-400 rounded-md active:scale-95">
                         Docs
                     </button>
