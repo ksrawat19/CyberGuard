@@ -3,6 +3,9 @@ import Links from "./components/Links";
 import routes from "routes.jsx";
 
 const Sidebar = ({ open, onClose }) => {
+  // --- Filter out tools/routes in the Sidebar ---
+  const sidebarRoutes = routes.filter(route => !route.hidden);
+
   return (
     <>
       <div
@@ -14,7 +17,6 @@ const Sidebar = ({ open, onClose }) => {
 
       <div
         className={`fixed !z-50 flex min-h-full w-72 flex-col border-r border-white/5 
-        /* SET BACKGROUND TO #1a1a1a FOR MOBILE */
         bg-[#1a1a1a] xl:bg-transparent 
         backdrop-blur-xl transition-all duration-300 ease-in-out
         ${open ? "translate-x-0" : "-translate-x-full"} xl:translate-x-0`}
@@ -38,7 +40,8 @@ const Sidebar = ({ open, onClose }) => {
 
         <div className="mb-auto px-4 overflow-y-auto scrollbar-hide">
           <ul className="space-y-2 pt-1">
-            <Links routes={routes} />
+            {/* PASS THE FILTERED ROUTES INSTEAD OF THE ORIGINAL ONES */}
+            <Links routes={sidebarRoutes} />
           </ul>
         </div>
 

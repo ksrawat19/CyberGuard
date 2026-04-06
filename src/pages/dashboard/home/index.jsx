@@ -32,12 +32,13 @@ const Home = () => {
             author="Khem Singh Rawat"
           />
           <ToolCards
-            title="Password Analyser"
-            author="Rishav Pathania"
+              title="Encryption Demonstration"
+              author="Vansh Gill"
           />
           <ToolCards
-            title="Encryption Demonstration"
-            author="Vansh Gill"
+            title="Password Analyser"
+            author="Rishav Pathania"
+            path="/dashboard/password-analyzer"
           />
         </div>
       </div>

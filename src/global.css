@@ -9,6 +9,10 @@
   --font-dm-sans: "DM Sans", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
 	html {
 		font-family: 'DM Sans', sans-serif !important;

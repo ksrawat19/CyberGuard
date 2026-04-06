@@ -1,9 +1,11 @@
-import { IoHeart, IoHeartOutline, IoSettingsOutline, IoShieldCheckmarkOutline } from "react-icons/io5";
+import { IoHeart, IoHeartOutline, IoShieldCheckmarkOutline } from "react-icons/io5";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "components/card";
 
-const ToolsCard = ({ title, price, extra }) => {
+const ToolsCard = ({ title, price, extra, path }) => {
   const [heart, setHeart] = useState(true);
+  const navigate = useNavigate();
 
   return (
     <Card
@@ -53,7 +55,10 @@ const ToolsCard = ({ title, price, extra }) => {
             </p>
           </div>
           
-          <button className="flex items-center gap-2 rounded-lg bg-[#78B3E2] px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#111c44] transition-all hover:bg-[#90c6f0] hover:shadow-[0_0_15px_rgba(120,179,226,0.3)]">
+          <button 
+            onClick={() => navigate(path)}
+            className="flex items-center gap-2 rounded-lg bg-[#78B3E2] px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#111c44] transition-all hover:bg-[#90c6f0] hover:shadow-[0_0_15px_rgba(120,179,226,0.3)]"
+          >
             Launch
           </button>
         </div>

@@ -39,6 +39,9 @@ export default function App() {
 
         {/* Catch-all: send any broken links back to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
+
+        {/* Tools routes */}
+        
       </Routes>
     </>
   );
